@@ -1,4 +1,4 @@
-# Python-DS-And-ML-Notes
+# Python-Data Science Repository
 
 A collection of notebooks I have made throughout my job, spare time, and in university covering important concepts in Python related to data analysis.
 
