@@ -13,4 +13,4 @@ A collection of notebooks I have made throughout my job, spare time, and in univ
     
 * [Matplotlib](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/matplotlib_basics.ipynb)
 
-* [Web Scrapping] (https://github.com/craigthinman/Python-DS-Repository/blob/master/Census_Scrapper.py)
+* [Web Scrapping](https://github.com/craigthinman/Python-DS-Repository/blob/master/Census_Scrapper.py)
