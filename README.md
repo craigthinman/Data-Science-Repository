@@ -3,6 +3,8 @@
 A collection of work I've done in python and R throughout my job, spare time, and in university covering important data analysis concepts.
 
 ### Directories
+
+## Python
 * [Basic Principals](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/basics.ipynb)
 
 * Machine Learning
