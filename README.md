@@ -1,6 +1,6 @@
-# Python-Data Science Repository
+# Data Science Repository
 
-A collection of notebooks I have made throughout my job, spare time, and in university covering important concepts in Python related to data analysis.
+A collection of work I've done in python and R throughout my job, spare time, and in university covering important data analysis concepts.
 
 ### Directories
 * [Basic Principals](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/basics.ipynb)
