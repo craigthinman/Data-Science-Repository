@@ -16,3 +16,7 @@ A collection of work I've done in python and R throughout my job, spare time, an
 * [Matplotlib](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/matplotlib_basics.ipynb)
 
 * [Web Scrapping](https://github.com/craigthinman/Python-DS-Repository/blob/master/Census_Scrapper.py)
+
+### R
+* Machine Learning
+    * [Linear Regression](https://github.com/craigthinman/Data-Science-Repository/blob/master/pop_prediction_arkansas.R)
