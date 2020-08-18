@@ -21,4 +21,4 @@ A collection of work I've done in python and R throughout my job, spare time, an
 * Machine Learning
     * [Linear Regression](https://github.com/craigthinman/Data-Science-Repository/blob/master/pop_prediction_arkansas.R)
     * [K-Means Clustering](https://github.com/craigthinman/Data-Science-Repository/blob/master/Cluster_Analysis.Rmd)
-    
+    * [Principle Component Regression](https://github.com/craigthinman/Data-Science-Repository/blob/master/uber_PCR.R)
