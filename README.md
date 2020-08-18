@@ -1,6 +1,6 @@
 # Data Science Repository
 
-A collection of work I've done in python and R throughout my job, spare time, and in university covering important data analysis concepts.
+A collection of work I've done in python and R on the job, during spare time, and in university covering important data analysis concepts.
 
 ## Directories
 
