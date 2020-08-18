@@ -66,7 +66,7 @@ sample <- sample.int(n = nrow(ride_data_num), size = floor(.75*nrow(ride_data_nu
 train <- ride_data_num[sample, ]
 test  <- ride_data_num[-sample, ]
 
-# Removing prince from sets
+# Removing price from splits
 pca.train <- subset(train, select=-c(price))
 pca.test  <- subset(test, select=-c(price))
 
@@ -148,7 +148,7 @@ mean(abs((actuals_preds$predicteds - actuals_preds$actuals))/actuals_preds$actua
 xyplot(actuals_preds$actuals ~ actuals_preds$predicteds, data = actuals_preds, type = c("p","r"), col.line = "red")
 
 # Note: Another method before PCR was to iterate with the leaps package through every combination of the
-# 95 variables from the original dataset (the one with the smallest BIC value).Due to the amount of data
+# 95 variables from the original dataset (the one with the smallest BIC value). Due to the amount of data
 # and cols the strategy was unable to be used but is useful for med-small sized datasets
 
 # leaps <- regsubsets(Price ~., data = priceX.pca, nbest = 1, method = "exhaustive", really.big = T)
