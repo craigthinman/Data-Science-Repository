@@ -7,9 +7,7 @@ A collection of work I've done in python and R on the job, during spare time, an
 ### Python
 * Fundamentals
    * [Basic Principals](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/basics.ipynb)
-   
    * [Pandas](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/Pandas.ipynb)
-    
    * [Matplotlib](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/matplotlib_basics.ipynb)
 
 * [Decision Trees and Random Forests](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/RF_modeling.ipynb)
@@ -20,5 +18,7 @@ A collection of work I've done in python and R on the job, during spare time, an
 
 ### R
 * [Linear Regression](https://github.com/craigthinman/Data-Science-Repository/blob/master/pop_prediction_arkansas.R)
+
 * [K-Means Clustering](https://github.com/craigthinman/Data-Science-Repository/blob/master/Cluster_Analysis.Rmd)
+
 * [Principle Component Regression (PCR)](https://github.com/craigthinman/Data-Science-Repository/blob/master/uber_PCR.R)
