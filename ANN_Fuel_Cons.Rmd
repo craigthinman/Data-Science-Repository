@@ -1,0 +1,175 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Building a neural network with the purpose of predicting the fuel consumption of the vehicles according to certain characteristics.
+
+Installs
+```{r}
+install.packages("neuralnet")
+library("neuralnet")
+```
+
+Using the Auto MPG dataset from the UCI Repository Machine Learning databases. It contains gas mileage, horsepower, and other information for 398 vehicles. It is a data frame with 398 observations on the variables:
+
+mpg: Miles per gallon
+cylinders: Number of cylinders between four and eight
+displacement: Engine displacement (cubic inches)
+horsepower: Engine horsepower
+weight: Vehicle weight (lbs)
+acceleration: Time to accelerate from 0 to 60 mph (sec)
+year: Model year (modulo 100)
+origin: Origin of car (American, European, Japanese)
+name: Vehicle name
+```{r}
+#Reading
+AutoData <- read.table(url("https://archive.ics.uci.edu/ml/machine-learning-
+databases/auto-mpg/auto-mpg.data"), sep = "")
+
+#Col names
+names(AutoData)<-c("mpg","cylinders","displacement",
+                "horsepower","weight","acceleration", 
+                              "year","origin","name")
+```
+EDA
+```{r}
+str(AutoData)
+```
+
+```{r}
+#Changing hp to int
+AutoData$horsepower<-as.integer(AutoData$horsepower)
+
+#Removing rows with NAs introduced by coercion from the previous action
+AutoData <- AutoData[!(is.na(AutoData$horsepower) | AutoData$horsepower==""), ]
+
+#Final null check
+summary(AutoData)
+```
+Plotting predictors versus target
+
+Trying mpg vs weight by orign
+```{r}
+plot(AutoData$weight, AutoData$mpg, pch=AutoData$origin)
+legend("topright",legend = c("America", "Europe", "Japan"), pch = c(1,2,3),)
+```
+Able to see as the fuel efficiency drop with weight gain. Weight of the Japanese vehicles are <3000lbs but they do tend to have higher mpg. Similar behavior with the Europe. American vehicle weights are spread out to some >4500lbs
+
+Plotting other predictors with the target (mpg)
+
+```{r}
+par(mfrow=c(2,2))
+plot(AutoData$cylinders, AutoData$mpg, pch=AutoData$origin)
+plot(AutoData$displacement, AutoData$mpg, pch=AutoData$origin)
+plot(AutoData$horsepower, AutoData$mpg, pch=AutoData$origin)
+plot(AutoData$acceleration, AutoData$mpg, pch=AutoData$origin)
+
+```
+Same behavior with weight can be seen with hp vs mpg and displacement vs mpg. Also cars with higher acceleration > lower fuel efficiency and American.
+
+Normalizing the data. It's crucial because scale differences in predictors can change a weight in the network to have a strong influence on greater values
+
+
+```{r}
+#Getting the mean and stdev for normalizing (excluding origin, year, name)
+mean_data <- apply(AutoData[1:6], 2, mean)
+sd_data <- apply(AutoData[1:6], 2, sd)
+
+#Scaling the data
+AutoDataScaled <- as.data.frame(scale(AutoData[,1:6],center =
+                                mean_data, scale = sd_data))
+```
+
+Splitting data into train and test (70/30). Train will help determine the weights, biases, and functions to get to the output from the input.
+
+```{r}
+index = sample(1:nrow(AutoData),round(0.70*nrow(AutoData)))
+train_data <- as.data.frame(AutoDataScaled[index,])
+test_data <- as.data.frame(AutoDataScaled[-index,])
+```
+
+Getting a function that we'll pass into neuralnet()
+
+```{r}
+n = names(AutoDataScaled)
+f = as.formula(paste("mpg ~", paste(n[!n %in% "mpg"],
+                                  collapse = " + ")))
+```
+
+Building and Training the network. Need to choose # of neurons:
+1. A small number of neurons = high error
+A large number of neurons will lead to overfitting. The number of neurons in each hidden layer should be somewhere between the size of the input and the output layer, potentially the mean
+3. The number of neurons in each hidden layer shouldn't exceed twice the number of input neurons, probably grossly overfitting
+
+Here there are five input variables (cylinders, displacement, horsepower, weight, and acceleration) and one variable output (mpg). We choose to set three neurons in the hidden layer
+
+```{r}
+NNRModel<-neuralnet(f,data=train_data,hidden=3,linear.output=TRUE)
+#(linear.output=TRUE) if we want to regression or (linear.output=FALSE) classification 
+```
+The algorithm used in neuralnet(), by default, is based on the resilient backpropagation without weight backtracking and additionally modifies one learning rate, either the learning rate associated with the smallest absolute gradient (sag) or the smallest learning rate (slr)
+
+
+```{r}
+summary(NNRModel)
+```
+We can plot the network with weights and biases
+
+```{r}
+plot(NNRModel)
+```
+Able to print weights and biases as below. Acceleration.to.1layhid3 weight = -3.71949 as seen above in the map.
+
+```{r}
+NNRModel$result.matrix
+```
+
+Making predictions on the test data
+
+```{r}
+PredNetTest <- compute(NNRModel,test_data[,2:6])
+
+#Getting the mean sqr error
+MSE.net <- sum((test_data$mpg - PredNetTest $net.result)^2)/nrow(test_data)
+
+MSE.net
+```
+
+Getting more of a feel of the accuracy by comparing it with a regular linear model
+
+```{r}
+#Training a lm
+LModel <- lm(mpg~., data=train_data)
+
+summary(LModel)
+```
+The basic lm had an r sqr of 70% and two sig predictors
+
+```{r}
+#Testing the lm
+PredLModel <- predict(LModel,test_data)
+
+#Error measurement
+MSE.lm <- sum((PredLModel - test_data$mpg)^2)/nrow(test_data)
+
+MSE.lm
+
+```
+
+The neural network outperformed the linear regression (0.28 vs 0.31) MSE
+
+Next plotting the two different models actuals vs predicted values
+
+```{r}
+par(mfrow=c(1,2))
+plot(test_data$mpg,PredNetTest$net.result,col='black',main='Real vs
+predicted for neural network',pch=18,cex=1)
+abline(0,1,lwd=2)
+plot(test_data$mpg,PredLModel,col='black',main='Real vs predicted for
+linear regression',pch=18,cex=1)
+abline(0,1,lwd=2)
+```
+
+
+
+
