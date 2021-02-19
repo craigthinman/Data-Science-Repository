@@ -22,3 +22,5 @@ A collection of work I've done in python and R on the job, during spare time, an
 * [K-Means Clustering](https://github.com/craigthinman/Data-Science-Repository/blob/master/Cluster_Analysis.Rmd)
 
 * [Principle Component Regression (PCR)](https://github.com/craigthinman/Data-Science-Repository/blob/master/uber_PCR.R)
+
+* [Artificial Neural Networks (ANN)](https://github.com/craigthinman/Data-Science-Repository/blob/master/ANN_Fuel_Cons.Rmd)
