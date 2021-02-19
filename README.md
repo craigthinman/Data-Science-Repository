@@ -1,6 +1,6 @@
 # Repository
 
-A collection of work I've done in python and R on the job, during spare time, and in university covering important data analysis concepts.
+A collection of work I've done in python and R on the job, during spare time, and in university covering data analysis concepts and scripts I've built to automate tasks for work.
 
 ## Directories
 
