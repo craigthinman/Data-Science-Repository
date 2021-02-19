@@ -1,4 +1,4 @@
-# Data Science Repository
+# Repository
 
 A collection of work I've done in python and R on the job, during spare time, and in university covering important data analysis concepts.
 
@@ -15,6 +15,8 @@ A collection of work I've done in python and R on the job, during spare time, an
 
 
 * [Web Scrapping](https://github.com/craigthinman/Python-DS-Repository/blob/master/Census_Scrapper.py)
+
+* [Purchase Order Creator](https://github.com/craigthinman/Data-Science-Repository/blob/master/po_creation_final.py) 
 
 ### R
 * [Linear Regression](https://github.com/craigthinman/Data-Science-Repository/blob/master/pop_prediction_arkansas.R)
