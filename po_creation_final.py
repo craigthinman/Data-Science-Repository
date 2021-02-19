@@ -1,8 +1,11 @@
-# Reading in the data (the bottom table in the example where we'll balance using the units column)
+#Providing a table input with DC-Store-Item-Units that are unbalanced with respect to how an individual item is packed (vendorpack/whsepack)
+#the following script will balance all the units so that each respective DC-Item sum of units respects the items packing
+#Useful for filling out SSOs
+
+# Reading in the data
 import pandas as pd
 import numpy as np
-df = pd.read_excel(open(
-    'C:\\Users\Owner\Desktop\InclusionCompanies\po_creation_raw_data.xlsx', 'rb'), sheet_name='Sheet1')
+df = pd.read_excel(open('', 'rb'), sheet_name='Sheet1')
 
 # Adding a store rank - used for giving units out to stores with more volume
 df['store_rank'] = df.groupby('Store')['Units'].transform(
@@ -44,4 +47,4 @@ final_df = pd.concat(dict_of_dcs.values(), ignore_index=True)
 final_df = final_df.iloc[:, 0:4]
 
 # Download output
-final_df.to_csv('C:\\Users\Owner\Downloads\Balanced_pos.csv')
+final_df.to_csv('')
