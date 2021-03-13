@@ -10,7 +10,7 @@ A collection of work I've done in python and R on the job, during spare time, an
    * [Pandas](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/Pandas.ipynb)
    * [Matplotlib](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/matplotlib_basics.ipynb)
 
-* [Decision Trees and Random Forests](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/RF_modeling.ipynb)
+* [Random Forests](https://github.com/craigthinman/Python-DS-And-ML-Notes/blob/master/RF_modeling.ipynb)
 * [Multiple Logistic Regression](https://github.com/craigthinman/Python-DS-Repository/blob/master/Logistic%20Regression.ipynb)
 
 
