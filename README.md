@@ -16,7 +16,10 @@ A collection of work I've done in python and R on the job, during spare time, an
 
 * [Web Scrapping](https://github.com/craigthinman/Python-DS-Repository/blob/master/Census_Scrapper.py)
 
-* [Purchase Order Creator](https://github.com/craigthinman/Data-Science-Repository/blob/master/po_creation_final.py) 
+* [Purchase Order Creator](https://github.com/craigthinman/Data-Science-Repository/blob/master/po_creation_final.py)
+
+* [Market Basket Analysis](https://github.com/craigthinman/Data-Science-Repository/blob/master/D212%20Task%203%20%20-%20Market%20Basket%20Analysis.ipynb) 
+
 
 ### R
 * [Linear Regression](https://github.com/craigthinman/Data-Science-Repository/blob/master/pop_prediction_arkansas.R)
